@@ -1,12 +1,39 @@
 var divStyle = {
-    backgroundColor: "blue",
+    backgroundImage: 'url("http://jmvtestsite.com/wp-content/uploads/2016/07/cityscape7.jpg")',
+    height: "100%",
+    width: "75%",
+    fontFamily: "Arial",
+    fontSize: "35px",
+    fontWeight: "bold",
     WebkitTransition: 'all',
     msTransition: 'all'
  };
 
 var countryStyle = {
-    border: '2px solid white',
+    border: "2px solid purple",
+    display: "block",
+    marginTop: "50px",
     marginLeft: '50px',
+    fontFamily: "Righteous",
+    fontSize: "30px",
+    WebkitTransition: 'all',
+    msTransition: 'all'
+ };
+
+var regionStyle = {
+    display: "block",
+    fontSize: "25px",
+    marginLeft: '75px',
+    WebkitTransition: 'all',
+    msTransition: 'all'
+ };
+
+var cityStyle = {
+    display: "block",
+    height: "100px",
+    width: "100px",
+    fontSize: "20px",
+    marginLeft: '200px',
     WebkitTransition: 'all',
     msTransition: 'all'
  };
@@ -76,7 +103,7 @@ class City extends React.Component {
 
             return (
 
-              <div className="city">
+              <div style={regionStyle}>
                 <h2>
                   {this.props.name}
                 </h2>
@@ -90,7 +117,7 @@ class Region extends React.Component {
 
   render() {
       return (
-        <div className="region">
+        <div style={regionStyle}>
           <h2>
             {this.props.name}
               </h2>
@@ -127,7 +154,7 @@ class App extends React.Component {
     render() {
       return (
         <div style={divStyle}>
-          <h2>Title</h2>
+          <h2>City Finder</h2>
           {this.props.data.countries.map(function(country) {
             return (
               <Country name={country.name} regions={country.regions}/>
@@ -141,4 +168,4 @@ class App extends React.Component {
     ReactDOM.render(
       <App data={data} />,
       document.getElementById('container')
-    );
+);
